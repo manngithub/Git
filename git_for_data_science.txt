@@ -1,0 +1,134 @@
+# Git for Data Science
+
+- Ignore certain files: have .gitignore file in root directory of repo
+
+Show the status of repo
+> git status 
+
+To check difference in any file after change
+> git diff filename_or_directory_or_leave_blank
+
+HEAD is the current version of commit; you can find difference for any change from current commit as
+> git diff -r HEAD filename
+Note that git equivalence of relative path is HEAD~2 means 2 commits before HEAD
+
+To stage after making change
+> git add filename
+
+To commit after staging:
+> git commit -m “message”
+
+For long/better commit message
+> git commit
+It will open text editor and you can write there and save and exit
+
+To amend the message of recent commit:
+> git commit --amend -m “new message”
+
+To view logs of all the commits:
+> git log
+This will show hashes with the commits
+
+To view logs of specific file:
+> git log filename
+
+To view a specific commit:
+> git show first_few_characters_of_commit_hash
+
+Who changed what in a file?:
+> git annotate filename
+
+Changes between two different commits
+> git diff commit_1_hash..commit_2_hash
+Just use few(generally 5) characters of hash and use two dots [..] between two hashes
+
+How git is configured?
+> git config [option]
+And option are
+* --system: settings for every user on this computer.
+* --global: settings for every one of your projects.
+* --local: settings for one specific project.
+* --list
+Each level overrides the one above it, so local settings (per-project) take precedence over global settings (per-user), which in turn take precedence over system settings (for all users on the computer).
+
+Change git configuration (with example of --global):
+> git config --global setting.name setting.value
+Setting.name could be user.name or user.email…
+
+Revert back from a recent staging area:
+> git reset HEAD
+This will take all the committed changes to upstage area
+
+Discard the changes that are unstaged
+> git checkout -- filename
+note that double dash should be present to revert to recent original file (on which changes were made)
+
+Restore(checkout) older (committed) version of file:
+Use > git log to see which commit you want to revert back, then
+> git checkout commit_hash filename
+
+On which branch I am?
+> git branch
+Star will show the branch you are working on
+
+Difference between to branches
+> git diff branch1..branch2
+Note that two dots are necessary. This is similar to check difference between two different commit versions
+
+Switch from one branch to another
+> git checkout branch_name
+Note that you can switch only when all the files are committed in present branch; then you can switch to different branch
+
+Delete file and commit the delete changes
+> git rm file # removes the file from the repo but also deletes it from the local file system.
+> git rm --cached file # removes the file from the repo and not delete it from the local file system
+> git commit -m “message”
+
+Create a branch
+> git checkout -b new_branch_name
+This will also switch you to this new branch
+
+Merge changes from source to destination branch
+> git merge source destination
+Git will open text editor and you can write message. Note that you should be first checkout to destination branch and then merge from source branch
+
+Merge conflicts
+> git merge source destination
+This will give conflict message
+> git status
+You will see ‘both modified’ for the merged files. Open the file in text editor and change and add file to staging area and commit
+> git add filename
+> git commit filename -m “message”
+
+Create a brand new repo/project
+> git init project-name
+Project-name is name of new repo’s root directory
+
+If you want to create repo from existing directory, then go to directory and write
+> git init
+Or from anywhere else in your computer
+> git init path_to_project_directory
+
+Copy of existing repo
+> git clone URL
+> git clone local_path  new_project_name
+local_path is path to git repo project that you want to clone
+
+Find origin of cloned repo
+> git remote -v
+Option v is for verbose that shows the remote URL. Once you clone a remote repo, it will show up as origin 
+
+Pull changes from remote 
+> git pull remote branch
+this gets everything in branch in the remote repository identified by remote and merges it into the current branch of your local repository.
+(Example: > git pull origin master)
+Note that you can’t pull changes from remote if you unsaved changes in your local
+
+Push changes to remote
+> git push remote-name branch-name
+which pushes the contents of your branch branch-name into a branch with the same name in the remote repository associated with remote-name
+For push conflict, first pull the changes from remote-name and resolve any conflict and commit and then push
+
+
+
+
