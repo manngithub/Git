@@ -129,6 +129,15 @@ Push changes to remote
 which pushes the contents of your branch branch-name into a branch with the same name in the remote repository associated with remote-name
 For push conflict, first pull the changes from remote-name and resolve any conflict and commit and then push
 
+Delete 'remote' feature branch
+> git push -d origin feature/branch_name
+
+Delete 'local' branch
+> git push -d branch_name
+> git push -D branch_name
+The -d option is an alias for --delete, which only deletes the branch if it has already been fully merged in its upstream branch. You could also use -D, which is an alias for --delete --force, which deletes the branch "irrespective of its merged status."
+
+
 
 
 
