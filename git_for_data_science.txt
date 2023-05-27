@@ -100,6 +100,9 @@ Merge changes from source to destination branch
 > git merge source destination
 Git will open text editor and you can write message. Note that you should be first checkout to destination branch and then merge from source branch
 
+Merge branch with squashing
+https://www.youtube.com/watch?v=GDof3qQfyho&list=PLdHg5T0SNpN1dJt6gv9DGSqk5sBjmG3XI&index=9
+
 Merge conflicts
 > git merge source destination
 This will give conflict message
