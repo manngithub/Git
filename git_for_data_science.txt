@@ -56,8 +56,9 @@ Change git configuration (with example of --global):
 Setting.name could be user.name or user.email…
 
 Revert back from a recent staging area:
-> git reset HEAD
-This will take all the committed changes to upstage area
+> git reset commit_id
+This will take all the recent committed changes back to commit_id. You can check the commit_id using >git log command. Note that above reset command will keep the changes to upstage area. It will just remove the commit. But if you want the recent changes to delete then you can use hard reset using this command. Check this video for reference https://www.youtube.com/watch?v=OGk5rvYw8c0
+> git reset commit_id --hard
 
 Discard the changes that are unstaged
 > git checkout -- filename
