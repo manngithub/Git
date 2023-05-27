@@ -29,6 +29,9 @@ To view logs of all the commits:
 > git log
 This will show hashes with the commits
 
+To view logs of all the commits with single line detail:
+> git log --oneline
+
 To view logs of specific file:
 > git log filename
 
